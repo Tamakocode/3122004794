@@ -1,0 +1,42 @@
+Original File(原文件): ------------------D:\OneDrive\桌面\测试文本\orig.txt
+Plagiarized File(抄袭文件): ------------------D:\OneDrive\桌面\测试文本\orig_0.8_dis_15.txt
+Similarity(相似度): ------------------0.64
+Date(检测日期): ------------------2024-03-09 21:37:18
+
+
+Original File(原文件): ------------------D:\OneDrive\桌面\测试文本\orig.txt
+Plagiarized File(抄袭文件): ------------------D:\OneDrive\桌面\测试文本\orig_0.8_dis_15.txt
+Similarity(相似度): ------------------0.64
+Date(检测日期): ------------------2024-03-12 18:03:30
+
+
+Original File(原文件): ------------------D:\OneDrive\桌面\测试文本\orig.txt
+Plagiarized File(抄袭文件): ------------------D:\OneDrive\桌面\测试文本\orig_0.8_add.txt
+Similarity(相似度): ------------------0.86
+Date(检测日期): ------------------2024-03-12 18:03:34
+
+
+Original File(原文件): ------------------D:\OneDrive\桌面\测试文本\orig.txt
+Plagiarized File(抄袭文件): ------------------D:\OneDrive\桌面\测试文本\orig_0.8_del.txt
+Similarity(相似度): ------------------0.75
+Date(检测日期): ------------------2024-03-12 18:03:57
+
+
+Original File(原文件): ------------------D:\OneDrive\桌面\测试文本\orig.txt
+Plagiarized File(抄袭文件): ------------------D:\OneDrive\桌面\测试文本\orig_0.8_dis_1.txt
+Similarity(相似度): ------------------0.87
+Date(检测日期): ------------------2024-03-12 18:04:24
+
+
+Original File(原文件): ------------------D:\OneDrive\桌面\测试文本\orig.txt
+Plagiarized File(抄袭文件): ------------------D:\OneDrive\桌面\测试文本\orig_0.8_dis_10.txt
+Similarity(相似度): ------------------0.77
+Date(检测日期): ------------------2024-03-12 18:04:52
+
+
+Original File(原文件): ------------------D:\OneDrive\桌面\测试文本\orig.txt
+Plagiarized File(抄袭文件): ------------------D:\OneDrive\桌面\测试文本\orig_0.8_dis_15.txt
+Similarity(相似度): ------------------0.64
+Date(检测日期): ------------------2024-03-12 18:05:17
+
+
