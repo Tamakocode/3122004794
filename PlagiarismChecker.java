@@ -10,21 +10,32 @@ public class PlagiarismChecker {
     private static double calculateLongestCommonSubsequence(String originalFile, String plagiarizedFile) throws FileNotFoundException {
         String text1 = readFile(originalFile);
         String text2 = readFile(plagiarizedFile);
-        int[][] dp = new int[text1.length() + 1][text2.length() + 1];
+        int[] dp = new int[text2.length() + 1];
 
-        // 动态规划计算最长公共子序列的长度
         for (int i = 1; i <= text1.length(); i++) {
+            // 存储前一行的dp[j]的值以供后续使用
+            int prev = dp[0];
+            // 初始化当前行的dp[0]
+            dp[0] = 0;
+
             for (int j = 1; j <= text2.length(); j++) {
+                // 存储当前行的dp[j]的值以供后续使用
+                int temp = dp[j];
+                // 如果当前位置的字符匹配
                 if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                    // 更新dp[j]为左上角的值加1
+                    dp[j] = prev + 1;
                 } else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    // 否则，取前一行或前一列的较大值
+                    dp[j] = Math.max(dp[j], dp[j - 1]);
                 }
+                // 更新prev为当前行的dp[j]的值，供下次迭代使用
+                prev = temp;
             }
         }
 
-        // 返回归一化的最长公共子序列长度
-        return (double) dp[text1.length()][text2.length()] / Math.max(text1.length(), text2.length());
+        // 返回最长公共子序列长度除以两个字符串长度的最大值
+        return (double) dp[text2.length()] / Math.max(text1.length(), text2.length());
     }
 
 
@@ -35,29 +46,26 @@ public class PlagiarismChecker {
         String text1 = readFile(originalFile);
         String text2 = readFile(plagiarizedFile);
 
-        int[][] dp = new int[text1.length() + 1][text2.length() + 1];
-
-        // 初始化编辑距离矩阵的第一行和第一列
-        for (int i = 0; i <= text1.length(); i++) {
-            dp[i][0] = i;
-        }
+        int[] dp = new int[text2.length() + 1];
         for (int j = 0; j <= text2.length(); j++) {
-            dp[0][j] = j;
+            dp[j] = j;
         }
 
-        // 动态规划计算编辑距离
         for (int i = 1; i <= text1.length(); i++) {
+            int prev = dp[0];
+            dp[0] = i;
             for (int j = 1; j <= text2.length(); j++) {
+                int temp = dp[j];
                 if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
+                    dp[j] = prev;
                 } else {
-                    dp[i][j] = 1 + Math.min(dp[i - 1][j - 1], Math.min(dp[i][j - 1], dp[i - 1][j]));
+                    dp[j] = 1 + Math.min(prev, Math.min(dp[j], dp[j - 1]));
                 }
+                prev = temp;
             }
         }
 
-        // 返回归一化的编辑距离
-        return 1 - (double) dp[text1.length()][text2.length()] / Math.max(text1.length(), text2.length());
+        return 1 - (double) dp[text2.length()] / Math.max(text1.length(), text2.length());
     }
 
 
@@ -99,7 +107,7 @@ public class PlagiarismChecker {
 
     public static void main(String[] args) {
         if (args.length < 3) {
-            System.out.println("无效参数输入，正确命令为：java 【PlagiarismChecker.java的绝对路径】 original.txt plagiarized.txt output.txt");
+            System.out.println("无效参数输入，正确命令为：java -jar 【PlagiarismChecker.jar的绝对路径】 original.txt plagiarized.txt output.txt");
             return;
         }
 
@@ -116,10 +124,9 @@ public class PlagiarismChecker {
         }
     }
 
-
-
-
 }
+
+
 
 
 
